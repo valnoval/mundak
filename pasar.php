@@ -1,5 +1,5 @@
 <?php
-$query = "SELECT pasar.id_pasar,pasar.nama_pasar,pasar.id_lokasi,pasar.gambar,lokasi.kelurahan,lokasi.kecamatan FROM pasar,lokasi WHERE pasar.id_lokasi=lokasi.id_lokasi ORDER BY nama_pasar LIMIT 0,4";
+$query = "SELECT pasar.id_pasar,pasar.nama_pasar,GROUP_CONCAT(DISTINCT(pasar.id_lokasi)),pasar.gambar,lokasi.kelurahan,lokasi.kecamatan FROM pasar,lokasi WHERE pasar.id_lokasi=lokasi.id_lokasi ORDER BY nama_pasar LIMIT 0,4";
 $stmt = $kon->prepare($query);
 $stmt->execute();
 $no =1;
